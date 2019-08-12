@@ -1,0 +1,24 @@
+framework:
+    workflows:
+        posts:
+            type: 'state_machine'
+            supports:
+                - App\Entity\Post
+            initial_place: draft
+            places:
+                - draft
+                - published
+                - archived
+            transitions:
+                publish:
+                    from: draft
+                    to: published
+                unpublish:
+                    from: published
+                    to: draft
+                archive:
+                    from: [draft, published]
+                    to: archived
+                unarchive:
+                    from: archived
+                    to: draft
