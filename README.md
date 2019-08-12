@@ -1,2 +1,2 @@
 # blog-api
-Blog API in Symfony with API Plaform.
+Blog API in Symfony with API Platform.
