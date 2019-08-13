@@ -12,16 +12,24 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
+use App\Controller\PostTransitionController;
 
 /**
  * @ApiResource(
+ *     itemOperations={"get", "put", "delete",
+ *          "status"={
+ *              "method"="PATCH",
+ *              "path"="/posts/{id}/{transition}",
+ *              "controller"=PostTransitionController::class
+ *          }
+ *     },
  *     normalizationContext={"groups"={"post:read"}},
  *     denormalizationContext={"groups"={"post:write"}},
  * )
  * @ORM\Entity(repositoryClass="App\Repository\PostRepository")
  * @UniqueEntity(fields="slug")
  */
-final class Post
+class Post
 {
     public const STATUS_DRAFT = 'draft';
     public const STATUS_PUBLISHED = 'draft';
