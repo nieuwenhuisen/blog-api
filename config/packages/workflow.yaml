@@ -2,23 +2,30 @@ framework:
     workflows:
         posts:
             type: 'state_machine'
+            marking_store:
+                type: 'single_state'
+                arguments: 'status'
             supports:
                 - App\Entity\Post
             initial_place: draft
             places:
                 - draft
                 - published
+                - trash
                 - archived
             transitions:
                 publish:
                     from: draft
                     to: published
-                unpublish:
-                    from: published
-                    to: draft
-                archive:
+                trash:
                     from: [draft, published]
+                    to: trash
+                archive:
+                    from: published
                     to: archived
+                untrash:
+                    from: trash
+                    to: draft
                 unarchive:
                     from: archived
                     to: draft

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiSubresource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -22,6 +23,11 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class Post
 {
+    public const STATUS_DRAFT = 'draft';
+    public const STATUS_PUBLISHED = 'draft';
+    public const STATUS_TRASH = 'trash';
+    public const STATUS_ARCHIVED = 'archived';
+
     use TimestampableEntity;
 
     /**
@@ -47,6 +53,13 @@ class Post
     private $slug;
 
     /**
+     * @var string
+     * @ORM\Column(type="string", length=20)
+     * @Groups({"post:read"})
+     */
+    private $status = self::STATUS_DRAFT;
+
+    /**
      * @ORM\Column(type="datetime", nullable=true)
      * @Groups({"post:read", "post:write"})
      * @Assert\DateTime()
@@ -63,6 +76,7 @@ class Post
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Category", inversedBy="posts")
      * @Groups({"post:read", "post:write"})
+     * @ApiSubresource()
      */
     private $categories;
 
@@ -148,5 +162,15 @@ class Post
         }
 
         return $this;
+    }
+
+    public function getStatus(): string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): void
+    {
+        $this->status = $status;
     }
 }
