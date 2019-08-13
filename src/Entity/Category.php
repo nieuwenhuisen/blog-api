@@ -17,7 +17,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * )
  * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
  */
-class Category
+final class Category
 {
     use TimestampableEntity;
 

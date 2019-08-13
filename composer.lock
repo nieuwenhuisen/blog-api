@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1d48de5a41bf0a2871615cecc71ac324",
+    "content-hash": "bc84e2240042f6bb288bd33eba6dd561",
     "packages": [
         {
             "name": "api-platform/api-pack",
@@ -44,16 +44,16 @@
         },
         {
             "name": "api-platform/core",
-            "version": "v2.4.5",
+            "version": "v2.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/api-platform/core.git",
-                "reference": "e056f5d9248588f228c88fb34f8ae2312fbb6387"
+                "reference": "e0eba21cacef703f09781a3fd523de274f48cd52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/api-platform/core/zipball/e056f5d9248588f228c88fb34f8ae2312fbb6387",
-                "reference": "e056f5d9248588f228c88fb34f8ae2312fbb6387",
+                "url": "https://api.github.com/repos/api-platform/core/zipball/e0eba21cacef703f09781a3fd523de274f48cd52",
+                "reference": "e0eba21cacef703f09781a3fd523de274f48cd52",
                 "shasum": ""
             },
             "require": {
@@ -71,8 +71,7 @@
             },
             "conflict": {
                 "doctrine/common": "<2.7",
-                "doctrine/mongodb-odm": "<2.0",
-                "symfony/messenger": ">=4.3"
+                "doctrine/mongodb-odm": "<2.0"
             },
             "require-dev": {
                 "behat/behat": "^3.1",
@@ -82,11 +81,8 @@
                 "behat/symfony2-extension": "^2.1.1",
                 "behatch/contexts": "3.1.0",
                 "doctrine/annotations": "^1.2",
-                "doctrine/data-fixtures": "^1.2.2",
                 "doctrine/doctrine-bundle": "^1.8",
                 "doctrine/doctrine-cache-bundle": "^1.3.5",
-                "doctrine/mongodb-odm": "^2.0@beta",
-                "doctrine/mongodb-odm-bundle": "^4.0@beta",
                 "doctrine/orm": "^2.6.3",
                 "elasticsearch/elasticsearch": "^6.0",
                 "friendsofsymfony/user-bundle": "^2.2@dev",
@@ -97,11 +93,10 @@
                 "phpdocumentor/reflection-docblock": "^3.0 || ^4.0",
                 "phpdocumentor/type-resolver": "^0.3 || ^0.4",
                 "phpspec/prophecy": "^1.8",
-                "phpstan/extension-installer": "^1.0",
-                "phpstan/phpstan": "^0.11",
-                "phpstan/phpstan-doctrine": "^0.11",
+                "phpstan/phpstan": "^0.11.3",
+                "phpstan/phpstan-doctrine": "^0.11.2",
                 "phpstan/phpstan-phpunit": "^0.11",
-                "phpstan/phpstan-symfony": "^0.11",
+                "phpstan/phpstan-symfony": "^0.11.2",
                 "phpunit/phpunit": "^7.5.2",
                 "psr/log": "^1.0",
                 "ramsey/uuid": "^3.7",
@@ -123,7 +118,7 @@
                 "symfony/framework-bundle": "^4.2",
                 "symfony/mercure-bundle": "*",
                 "symfony/messenger": "^4.2",
-                "symfony/phpunit-bridge": "^4.3",
+                "symfony/phpunit-bridge": "^3.4.5 || ^4.0.5",
                 "symfony/routing": "^3.4 || ^4.0",
                 "symfony/security-bundle": "^3.4 || ^4.0",
                 "symfony/security-core": "^3.4 || ^4.0",
@@ -184,7 +179,7 @@
                 "rest",
                 "swagger"
             ],
-            "time": "2019-06-22T10:48:51+00:00"
+            "time": "2019-05-16T17:02:13+00:00"
         },
         {
             "name": "behat/transliterator",
@@ -1978,16 +1973,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.2.2",
+            "version": "v4.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "1bd73cc04c3843ad8d6b0bfc0956026a151fc420"
+                "reference": "e612609022e935f3d0337c1295176505b41188c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/1bd73cc04c3843ad8d6b0bfc0956026a151fc420",
-                "reference": "1bd73cc04c3843ad8d6b0bfc0956026a151fc420",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/e612609022e935f3d0337c1295176505b41188c8",
+                "reference": "e612609022e935f3d0337c1295176505b41188c8",
                 "shasum": ""
             },
             "require": {
@@ -1995,7 +1990,7 @@
                 "php": ">=7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.5 || ^7.0"
+                "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0"
             },
             "bin": [
                 "bin/php-parse"
@@ -2025,7 +2020,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2019-05-25T20:07:01+00:00"
+            "time": "2019-08-12T20:17:41+00:00"
         },
         {
             "name": "ocramius/package-versions",
@@ -2079,16 +2074,16 @@
         },
         {
             "name": "ocramius/proxy-manager",
-            "version": "2.2.2",
+            "version": "2.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Ocramius/ProxyManager.git",
-                "reference": "14b137b06b0f911944132df9d51e445a35920ab1"
+                "reference": "4d154742e31c35137d5374c998e8f86b54db2e2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Ocramius/ProxyManager/zipball/14b137b06b0f911944132df9d51e445a35920ab1",
-                "reference": "14b137b06b0f911944132df9d51e445a35920ab1",
+                "url": "https://api.github.com/repos/Ocramius/ProxyManager/zipball/4d154742e31c35137d5374c998e8f86b54db2e2f",
+                "reference": "4d154742e31c35137d5374c998e8f86b54db2e2f",
                 "shasum": ""
             },
             "require": {
@@ -2145,7 +2140,7 @@
                 "proxy pattern",
                 "service proxies"
             ],
-            "time": "2018-09-27T13:45:01+00:00"
+            "time": "2019-08-10T08:37:15+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -3980,6 +3975,80 @@
                 "scaffolding"
             ],
             "time": "2019-07-09T22:19:18+00:00"
+        },
+        {
+            "name": "symfony/messenger",
+            "version": "v4.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/messenger.git",
+                "reference": "38e669597b38c84b6d8a4b56c40b9b019a733dc0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/messenger/zipball/38e669597b38c84b6d8a4b56c40b9b019a733dc0",
+                "reference": "38e669597b38c84b6d8a4b56c40b9b019a733dc0",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "psr/log": "~1.0"
+            },
+            "conflict": {
+                "symfony/debug": "<4.1",
+                "symfony/event-dispatcher": "<4.3"
+            },
+            "require-dev": {
+                "doctrine/dbal": "^2.5",
+                "psr/cache": "~1.0",
+                "symfony/console": "~3.4|~4.0",
+                "symfony/debug": "~4.1",
+                "symfony/dependency-injection": "~3.4.19|^4.1.8",
+                "symfony/doctrine-bridge": "~3.4|~4.0",
+                "symfony/event-dispatcher": "~4.3",
+                "symfony/http-kernel": "~3.4|~4.0",
+                "symfony/process": "~3.4|~4.0",
+                "symfony/property-access": "~3.4|~4.0",
+                "symfony/serializer": "~3.4|~4.0",
+                "symfony/service-contracts": "^1.1",
+                "symfony/stopwatch": "~3.4|~4.0",
+                "symfony/validator": "~3.4|~4.0",
+                "symfony/var-dumper": "~3.4|~4.0"
+            },
+            "suggest": {
+                "enqueue/messenger-adapter": "For using the php-enqueue library as a transport."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Messenger\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Samuel Roze",
+                    "email": "samuel.roze@gmail.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Messenger Component",
+            "homepage": "https://symfony.com",
+            "time": "2019-07-27T17:04:32+00:00"
         },
         {
             "name": "symfony/mime",

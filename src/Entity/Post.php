@@ -21,7 +21,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Entity(repositoryClass="App\Repository\PostRepository")
  * @UniqueEntity(fields="slug")
  */
-class Post
+final class Post
 {
     public const STATUS_DRAFT = 'draft';
     public const STATUS_PUBLISHED = 'draft';
