@@ -39,9 +39,9 @@ class Post
     use TimestampableEntity;
 
     /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="UUID")
+     * @ORM\Column(type="guid", unique=true)
      */
     private $id;
 
@@ -93,7 +93,7 @@ class Post
         $this->categories = new ArrayCollection();
     }
 
-    public function getId(): ?int
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -180,5 +180,10 @@ class Post
     public function setStatus(string $status): void
     {
         $this->status = $status;
+    }
+
+    public function __toString()
+    {
+        return (string) $this->getId();
     }
 }
