@@ -17,6 +17,9 @@ final class Version20190811190632 extends AbstractMigration
         return 'At created at and updated at fields to the category and post table.';
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
@@ -26,6 +29,9 @@ final class Version20190811190632 extends AbstractMigration
         $this->addSql('ALTER TABLE post ADD created_at DATETIME NOT NULL, ADD updated_at DATETIME NOT NULL');
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function down(Schema $schema) : void
     {
         // this down() migration is auto-generated, please modify it to your needs

@@ -17,6 +17,9 @@ final class Version20190809201419 extends AbstractMigration
         return 'Create post and category tables.';
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
@@ -29,6 +32,9 @@ final class Version20190809201419 extends AbstractMigration
         $this->addSql('ALTER TABLE post_category ADD CONSTRAINT FK_B9A1906012469DE2 FOREIGN KEY (category_id) REFERENCES category (id) ON DELETE CASCADE');
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function down(Schema $schema) : void
     {
         // this down() migration is auto-generated, please modify it to your needs

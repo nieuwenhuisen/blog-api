@@ -17,6 +17,9 @@ final class Version20190813173025 extends AbstractMigration
         return 'Add status column to post table.';
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
@@ -25,6 +28,9 @@ final class Version20190813173025 extends AbstractMigration
         $this->addSql('ALTER TABLE post ADD status VARCHAR(20) NOT NULL');
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function down(Schema $schema) : void
     {
         // this down() migration is auto-generated, please modify it to your needs

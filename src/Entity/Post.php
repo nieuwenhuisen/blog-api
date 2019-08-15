@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
@@ -39,6 +41,8 @@ class Post
     use TimestampableEntity;
 
     /**
+     * @var string
+     *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="UUID")
      * @ORM\Column(type="guid", unique=true)
@@ -46,6 +50,8 @@ class Post
     private $id;
 
     /**
+     * @var string
+     *
      * @ORM\Column(type="string", length=255)
      * @Groups({"post:read", "post:write"})
      * @Assert\NotBlank()
@@ -53,6 +59,8 @@ class Post
     private $title;
 
     /**
+     * @var string
+     *
      * @Gedmo\Slug(fields={"title"})
      * @ORM\Column(type="string", length=100, unique=true)
      * @Groups({"post:read"})
@@ -61,12 +69,14 @@ class Post
 
     /**
      * @var string
+     *
      * @ORM\Column(type="string", length=20)
      * @Groups({"post:read"})
      */
     private $status = self::STATUS_DRAFT;
 
     /**
+     * @var \DateTime
      * @ORM\Column(type="datetime", nullable=true)
      * @Groups({"post:read", "post:write"})
      * @Assert\DateTime()
@@ -74,6 +84,8 @@ class Post
     private $publicationDate;
 
     /**
+     * @var string
+     *
      * @ORM\Column(type="text")
      * @Groups({"post:read", "post:write"})
      * @Assert\NotBlank()
@@ -81,6 +93,8 @@ class Post
     private $content;
 
     /**
+     * @var Collection
+     *
      * @ORM\ManyToMany(targetEntity="App\Entity\Category", inversedBy="posts")
      * @Groups({"post:read", "post:write"})
      * @ApiSubresource()
@@ -181,7 +195,7 @@ class Post
         $this->status = $status;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return (string) $this->getId();
     }
