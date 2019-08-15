@@ -21,6 +21,8 @@
         "symfony/messenger": "^4.2"
     },
     "require-dev": {
+        "symfony/test-pack": "^1.0",
+        "ext-json": "*"
     },
     "config": {
         "preferred-install": {

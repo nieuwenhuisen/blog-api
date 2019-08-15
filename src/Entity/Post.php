@@ -56,7 +56,6 @@ class Post
      * @Gedmo\Slug(fields={"title"})
      * @ORM\Column(type="string", length=100, unique=true)
      * @Groups({"post:read"})
-     * @Assert\NotBlank()
      */
     private $slug;
 
