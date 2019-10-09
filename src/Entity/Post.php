@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiSubresource;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -15,10 +16,15 @@ use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 use App\Controller\PostTransitionController;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
  * @ApiResource(
- *     itemOperations={"get", "put", "delete",
+ *     itemOperations={
+ *          "get",
+ *          "put",
+ *          "delete",
  *          "status"={
  *              "method"="PATCH",
  *              "path"="/posts/{id}/{transition}",
@@ -28,13 +34,15 @@ use App\Controller\PostTransitionController;
  *     normalizationContext={"groups"={"post:read"}},
  *     denormalizationContext={"groups"={"post:write"}},
  * )
+ * @ApiFilter(OrderFilter::class)
  * @ORM\Entity(repositoryClass="App\Repository\PostRepository")
  * @UniqueEntity(fields="slug")
+ * @ApiFilter(SearchFilter::class, properties={"status": "exact", "title": "partial", "content": "partial"})
  */
 class Post
 {
     public const STATUS_DRAFT = 'draft';
-    public const STATUS_PUBLISHED = 'draft';
+    public const STATUS_PUBLISHED = 'published';
     public const STATUS_TRASH = 'trash';
     public const STATUS_ARCHIVED = 'archived';
 
