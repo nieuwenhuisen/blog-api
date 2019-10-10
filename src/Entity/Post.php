@@ -21,23 +21,18 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
  * @ApiResource(
- *     itemOperations={
- *          "get",
- *          "put",
- *          "delete",
+ *     itemOperations={"get", "put", "delete",
  *          "status"={
  *              "method"="PATCH",
  *              "path"="/posts/{id}/{transition}",
  *              "controller"=PostTransitionController::class
  *          }
- *     },
- *     normalizationContext={"groups"={"post:read"}},
- *     denormalizationContext={"groups"={"post:write"}},
+ *     }
  * )
  * @ApiFilter(OrderFilter::class)
+ * @ApiFilter(SearchFilter::class, properties={"status": "exact", "title": "partial", "content": "partial"})
  * @ORM\Entity(repositoryClass="App\Repository\PostRepository")
  * @UniqueEntity(fields="slug")
- * @ApiFilter(SearchFilter::class, properties={"status": "exact", "title": "partial", "content": "partial"})
  */
 class Post
 {

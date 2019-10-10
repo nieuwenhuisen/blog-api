@@ -12,10 +12,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ApiResource(
- *     normalizationContext={"groups"={"field:read"}},
- *     denormalizationContext={"groups"={"field:write"}},
- * )
+ * @ApiResource()
  * @ApiFilter(OrderFilter::class)
  * @ApiFilter(SearchFilter::class, properties={"type": "exact", "name": "partial"})
  * @ORM\Entity(repositoryClass="App\Repository\FieldRepository")

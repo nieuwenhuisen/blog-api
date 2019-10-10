@@ -15,12 +15,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 
 /**
- * @ApiResource(
- *     normalizationContext={"groups"={"category:read"}},
- *     denormalizationContext={"groups"={"category:write"}}
- * )
- * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
+ * @ApiResource()
  * @ApiFilter(OrderFilter::class)
+ * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
  */
 class Category
 {
