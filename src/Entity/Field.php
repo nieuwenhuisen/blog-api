@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -41,6 +42,7 @@ class Field
      * @var string
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank()
+     * @Groups({"field:read", "field:write", "post:read", "post:write"})
      */
     private $name;
 
@@ -48,6 +50,7 @@ class Field
      * @var string
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank()
+     * @Groups({"field:read", "field:write", "post:read", "post:write"})
      */
     private $type = self::TYPE_TEXT;
 
@@ -55,6 +58,7 @@ class Field
      * @var string
      * @ORM\Column(type="text")
      * @Assert\NotBlank()
+     * @Groups({"field:read", "field:write", "post:read", "post:write"})
      */
     private $value;
 

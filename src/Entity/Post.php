@@ -110,7 +110,11 @@ class Post
     private $categories;
 
     /**
+     * @var Collection
+     *
      * @ORM\OneToMany(targetEntity="App\Entity\Field", mappedBy="post", orphanRemoval=true, cascade={"persist", "remove"})
+     * @Groups({"post:read", "post:write"})
+     * @ApiSubresource()
      */
     private $fields;
 
