@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\DataFixtures;
 
 use App\Entity\Category;
+use App\Entity\Field;
 use App\Entity\Post;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -46,6 +47,16 @@ class PostFixture extends Fixture implements DependentFixtureInterface
                 /** @var Category $category */
                 $category = $this->getReference('category_'.$randomCategoryKey);
                 $post->addCategory($category);
+            }
+
+            $fieldNames = $this->faker->randomElements(['meta_title', 'meta_description', 'excerpt', 'intro', 'featured','title', 'cta', 'subtitle']);
+
+            foreach ($fieldNames as $fieldName) {
+                $field = new Field();
+                $field->setName($fieldName);
+                $field->setValue($this->faker->realText());
+
+                $post->addField($field);
             }
 
             $manager->persist($post);

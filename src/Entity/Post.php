@@ -109,9 +109,15 @@ class Post
      */
     private $categories;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Field", mappedBy="post", orphanRemoval=true, cascade={"persist", "remove"})
+     */
+    private $fields;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
+        $this->fields = new ArrayCollection();
     }
 
     public function getId(): ?string
@@ -206,5 +212,36 @@ class Post
     public function __toString(): string
     {
         return (string) $this->getId();
+    }
+
+    /**
+     * @return Collection|Field[]
+     */
+    public function getFields(): Collection
+    {
+        return $this->fields;
+    }
+
+    public function addField(Field $field): self
+    {
+        if (!$this->fields->contains($field)) {
+            $this->fields[] = $field;
+            $field->setPost($this);
+        }
+
+        return $this;
+    }
+
+    public function removeField(Field $field): self
+    {
+        if ($this->fields->contains($field)) {
+            $this->fields->removeElement($field);
+            // set the owning side to null (unless already changed)
+            if ($field->getPost() === $this) {
+                $field->setPost(null);
+            }
+        }
+
+        return $this;
     }
 }
